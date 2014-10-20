@@ -6,7 +6,9 @@
 ##### NOTE: nova, glance and neutron already have 32 worker by default (auto)
 ##### 32 is number of cpu in controller node, change this value to suit your environment
 
-# execute patch.sh in controller node to overwrite keystone and enable multiple worker
+# execute patch.sh in controller node to overwrite existing keystone file
+
+CONT=$( fuel node | grep -e controller | awk '//{print $1}' );
 for i in $CONT; do
 	ssh node-$i "bash /root/script/patch-keystone.sh"
 done
