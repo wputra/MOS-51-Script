@@ -1,0 +1,12 @@
+deb http://10.10.0.1:8080/ubuntu/fuelweb/x86_64 precise main
+
+#deb http://kambing.ui.ac.id/ubuntu/ precise main
+#deb-src http://kambing.ui.ac.id/ubuntu/ precise main
+
+#deb http://kambing.ui.ac.id/ubuntu/ precise-updates main
+#deb-src http://kambing.ui.ac.id/ubuntu/ precise-updates main
+
+#deb http://kambing.ui.ac.id/ubuntu/ precise universe
+#deb-src http://kambing.ui.ac.id/ubuntu/ precise universe
+#deb http://kambing.ui.ac.id/ubuntu/ precise-updates universe
+#deb-src http://kambing.ui.ac.id/ubuntu/ precise-updates universe
