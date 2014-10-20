@@ -17,8 +17,3 @@ CEPH=$( fuel node | grep -e ceph | awk '//{print $1}' );
 for i in $CEPH; do
 	ssh node-$i "stop ceph-all && start ceph-all"
 done
-
-# revert ceph.conf in primary controller as before
-
-ssh node-1 "sed -i '/osd\./d' /etc/ceph/ceph.conf"
-ssh node-1 "sed -i '/host=node/d' /etc/ceph/ceph.conf"
