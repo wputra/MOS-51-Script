@@ -7,7 +7,7 @@
 
 ssh node-1 "ceph osd set noout"
 
-# make sure nvme device already partitioned properly
+# after make sure nvme device already partitioned properly,
 # we can start to move journal
 
 CEPH=$( fuel node | grep -e ceph | awk '//{print $1}' );
