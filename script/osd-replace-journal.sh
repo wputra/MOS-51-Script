@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ID=$( cat part.txt );
+ID=$( cat /root/part.txt );
 x=4;
 
 for i in $ID; do
