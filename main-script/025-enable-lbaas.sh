@@ -4,7 +4,7 @@
 ##### MAKE SURE to use package from nailgun repo
 
 for i in $CONT; do
-	rsync -avz script/sources.list.nailgun node-$i:/etc/apt/sources.list
+	rsync -avz ../script/sources.list.nailgun node-$i:/etc/apt/sources.list
 	ssh node-$i "apt-get update && apt-get install neutron-lbaas-agent && service neutron-lbaas-agent stop"
 	ssh node-$i "cp /etc/init/neutron-l3-agent.override /etc/init/neutron-lbaas-agent.override"
 

@@ -7,6 +7,6 @@
 
 ALL=$( fuel node | grep -e ready | awk '//{print $1}' );
 for i in $ALL; do
-	rsync -avz script/sources.list node-$i:/etc/apt/
+	rsync -avz ../script/sources.list node-$i:/etc/apt/
 	ssh node-$i "apt-get update && apt-get --only-upgrade install bash"
 done
