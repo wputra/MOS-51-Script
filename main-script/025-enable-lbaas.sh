@@ -15,12 +15,12 @@ for i in $CONT; do
 # modify /etc/neutron/lbaas_agent.ini
 	ssh node-$i "sed -i '2iuse_namespaces = True' /etc/neutron/lbaas_agent.ini"
 	ssh node-$i "sed -i 's/# periodic_interval = 10/periodic_interval = 10/g' /etc/neutron/lbaas_agent.ini"
-	ssh node-$i "sed -i 's/# interface_driver = neutron./interface_driver = neutron./g' /etc/neutron/lbaas_agent.ini"
+	ssh node-$i "sed -i 's/# interface_driver = neutron./interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver/g' /etc/neutron/lbaas_agent.ini"
 	ssh node-$i "sed -i 's/# device_driver = neutron./device_driver = neutron./g' /etc/neutron/lbaas_agent.ini"
 	ssh node-$i "sed -i 's/# user_group = nogroup/user_group = nogroup/g' /etc/neutron/lbaas_agent.ini"
 
 # modify enable_lb in /etc/openstack-dashboard/local_settings.py to 'True' value
-	ssh node-$i "sed -i 's/enable_lb': False/enable_lb': True/g' /etc/neutron/lbaas_agent.ini"
+	ssh node-$i "bash /root/script/enable-lb.sh"
 
 # modify /etc/apache2/conf.d/zzz_performance_tuning.conf to proper value
 # so apache doesnt thow warning
