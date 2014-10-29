@@ -3,6 +3,7 @@
 ##### enable LBaaS in controller node
 ##### MAKE SURE to use package from nailgun repo
 
+CONT=$( fuel node | grep -e controller | awk '//{print $1}' );
 for i in $CONT; do
 	rsync -avz ../script/sources.list.nailgun node-$i:/etc/apt/sources.list
 	ssh node-$i "apt-get update && apt-get install neutron-lbaas-agent && service neutron-lbaas-agent stop"
