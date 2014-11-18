@@ -19,7 +19,7 @@ for i in $CONT; do
 	ssh node-$i "sed -i 's/# device_driver = neutron./device_driver = neutron./g' /etc/neutron/lbaas_agent.ini"
 	ssh node-$i "sed -i 's/# user_group = nogroup/user_group = nogroup/g' /etc/neutron/lbaas_agent.ini"
 
-# modify enable_lb in /etc/openstack-dashboard/local_settings.py to 'True' value
+# modify enable_lb & site branding in /etc/openstack-dashboard/local_settings.py to 'True' value
 	ssh node-$i "bash /root/script/enable-lb.sh"
 
 # modify /etc/apache2/conf.d/zzz_performance_tuning.conf to proper value
